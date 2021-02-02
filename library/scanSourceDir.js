@@ -2,8 +2,10 @@ const fs = require("fs");
 const processFile = require("./processFile");
 const printContent = require("./printContent");
 
-const scanSourceDir = () => {
-  const sourceDir = "source";
+const scanSourceDir = (
+  sourceDir = "../../src/resources/raw",
+  generatedPath = "../../src/resources/generated"
+) => {
   fs.readdir(sourceDir, (err, filenames) => {
     if (err) return console.log(err);
 
@@ -11,7 +13,7 @@ const scanSourceDir = () => {
       processFile(
         sourceDir,
         filename,
-        printContent((isSuccess) => {
+        printContent(generatedPath, (isSuccess) => {
           filenames[filenames.length - 1] === filename &&
             isSuccess &&
             console.log("\nDone!\n");
