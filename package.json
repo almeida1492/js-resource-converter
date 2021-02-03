@@ -1,7 +1,7 @@
 {
   "name": "js-resource-converter",
   "version": "1.0.0",
-  "description": "",
+  "description": "An i18n resources format converter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,12 @@
   "bin": {
     "convert-resources": "./index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "i18n",
+    "resources",
+    "format"
+  ],
+  "author": "Henrique de Almeida",
   "license": "ISC",
   "dependencies": {
     "lodash.set": "^4.3.2"
