@@ -9,13 +9,14 @@ const scanSourceDir = (
   fs.readdir(sourceDir, (err, filenames) => {
     if (err) return console.log(err);
 
+    let createdFilesCounter = 0;
     filenames.forEach((filename) => {
       processFile(
         sourceDir,
         filename,
         printContent(generatedPath, (isSuccess) => {
-          filenames[filenames.length - 1] === filename &&
-            isSuccess &&
+          if (isSuccess) createdFilesCounter = createdFilesCounter + 1;
+          if (createdFilesCounter === filenames.length)
             console.log("\nDone!\n");
         })
       );
