@@ -3,3 +3,5 @@ const getLanguageTag = (filename) => {
   const tag = filename.substring(index, index + 2);
   return tag;
 };
+
+module.exports = getLanguageTag;
