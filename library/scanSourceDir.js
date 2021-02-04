@@ -3,11 +3,12 @@ const processFile = require("./processFile");
 const printContent = require("./printContent");
 
 const scanSourceDir = (
-  sourceDir = "../../src/resources/raw",
-  generatedPath = "../../src/resources/generated"
+  sourceDir = "src/resources/raw",
+  generatedPath = "src/resources/generated"
 ) => {
   fs.readdir(sourceDir, (err, filenames) => {
     if (err) return console.log(err);
+    if (filenames.length === 0) return console.log("No files to convert.\n");
 
     let createdFilesCounter = 0;
     filenames.forEach((filename) => {
